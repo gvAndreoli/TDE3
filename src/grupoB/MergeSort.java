@@ -41,36 +41,36 @@ public class MergeSort {
         int topDir = 0;
         for (int i = inicio; i < fim; i++) {
             if (topEsq >= tamanho(esquerda)){
-                if (vetor[i] != direita[topDir]){
+                if (vetor[i] == direita[topDir]){
+                    topDir++;
+                } else {
                     vetor[i] = direita[topDir];
                     topDir++;
                     nDeTrocas++;
-                } else {
-                    topDir++;
                 }
             } else if (topDir >= tamanho(direita)){
-                if (vetor[i] != esquerda[topEsq]){
+                if (vetor[i] == esquerda[topEsq]){
+                    topDir++;
+                } else {
                     vetor[i] = esquerda[topEsq];
                     topEsq++;
                     nDeTrocas++;
-                } else {
-                    topEsq++;
                 }
             } else if (esquerda[topEsq] < direita[topDir]){
-                if (vetor[i] != esquerda[topEsq]){
+                if (vetor[i] == esquerda[topEsq]){
+                    topEsq++;
+                }else {
                     vetor[i] = esquerda[topEsq];
                     topEsq++;
                     nDeTrocas++;
-                }else {
-                    topEsq++;
                 }
             } else {
-                if (vetor[i] != direita[topDir]){
+                if (vetor[i] == direita[topDir]){
+                    topEsq++;
+                }else {
                     vetor[i] = direita[topDir];
                     topDir++;
                     nDeTrocas++;
-                }else {
-                    topDir++;
                 }
             }
             iteracoes++;
